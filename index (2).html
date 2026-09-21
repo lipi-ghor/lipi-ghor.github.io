@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>Lipi-Ghor | Bengali Speech Corpus</title>
+  <meta name="description" content="Lipi-Ghor: a large-scale, diarized, multi-domain Bengali speech corpus and a scalable pipeline for building it." />
+  <meta name="keywords" content="Lipi-Ghor, Bengali speech, Bangla ASR, speaker diarization, speech corpus, SSTT, SALMA 2026, EMNLP 2026" />
+  <meta name="author" content="Sanjid Hasan, A H M Fuad, Risalat Labib, Bayazid Hasan" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lipi-ghor.github.io/" />
+  <meta property="og:title" content="Lipi-Ghor | Bengali Speech Corpus" />
+  <meta property="og:description" content="885.34 hours of diarized, multi-domain Bengali speech across 17 domains." />
+  <meta property="og:image" content="https://lipi-ghor.github.io/assets/BEST_PAEROTO.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "Lipi-Ghor: A Large-Scale, Diarized, Multi-Domain Bengali Speech Corpus and a Scalable Pipeline for Building It",
+    "author": [
+      {"@type":"Person","name":"Sanjid Hasan"},
+      {"@type":"Person","name":"A H M Fuad"},
+      {"@type":"Person","name":"Risalat Labib"},
+      {"@type":"Person","name":"Bayazid Hasan"}
+    ],
+    "url": "https://lipi-ghor.github.io/",
+    "about": ["Bengali speech recognition", "speaker diarization", "speech corpora", "low-resource languages"]
+  }
+  </script>
+</head>
+<body>
+  <main id="top">
+    <section class="paper-hero section-shell narrow">
+      <div class="venue-logos" aria-label="Conference and workshop logos">
+        <a href="https://2026.emnlp.org/" target="_blank" rel="noopener" aria-label="EMNLP 2026">
+          <img src="assets/emnlp_2026_logo.png" alt="EMNLP 2026 logo" onerror="this.onerror=null;this.src='assets/emnlp-fallback.svg';" />
+        </a>
+        <a href="https://salma-workshop.github.io/salma-2026/" target="_blank" rel="noopener" aria-label="SALMA 2026">
+          <img src="assets/salma_2026_logo.png" alt="SALMA 2026 logo" onerror="this.onerror=null;this.src='assets/salma-fallback.svg';" />
+        </a>
+      </div>
+
+      <h1 class="publication-title">Lipi-Ghor: A Large-Scale, Diarized, Multi-Domain Bengali Speech Corpus and a Scalable Pipeline for Building It</h1>
+
+      <div class="publication-authors" aria-label="Authors">
+        <span>Sanjid Hasan<sup>1</sup></span>
+        <span>A H M Fuad<sup>2</sup></span>
+        <span>Risalat Labib<sup>2</sup></span>
+        <span>Bayazid Hasan<sup>2</sup></span>
+      </div>
+
+      <div class="publication-affiliations">
+        <p><sup>1</sup>Department of Electrical and Electronic Engineering, KUET, Khulna, Bangladesh</p>
+        <p><sup>2</sup>Department of Computer Science and Engineering, BUET, Dhaka, Bangladesh</p>
+      </div>
+
+      <div class="publication-venue">EMNLP 2026 · SALMA Workshop</div>
+
+      <div class="publication-links">
+        <a class="paper-button" href="paper.pdf" target="_blank" rel="noopener">Paper</a>
+        <a class="paper-button" href="https://huggingface.co/datasets/Sanjidh090/Lipi-Ghor-bn-882-SSTT" target="_blank" rel="noopener">Dataset</a>
+        <a class="paper-button" href="https://github.com/lipi-ghor/lipi-ghor.github.io" target="_blank" rel="noopener">Code</a>
+        <a class="paper-button" href="https://doi.org/10.57967/hf/7877" target="_blank" rel="noopener">DOI</a>
+      </div>
+
+      <h2 class="paper-tldr">Lipi-Ghor brings 885.34 hours of long-form Bengali speech across 17 domains into a single speaker-diarized SSTT corpus, together with a scalable construction pipeline and a human-corrected gold evaluation split.</h2>
+    </section>
+
+    <section id="abstract" class="section section-shell narrow">
+      <div class="section-kicker">Overview</div>
+      <h2>Abstract</h2>
+      <p class="lead">
+        Lipi-Ghor is a large-scale weakly supervised Bengali speech corpus designed to move beyond short, read-speech benchmarks. The released corpus combines long-form YouTube audio with speaker diarization and Bengali caption tracks in an SSTT schema: Speaker, Speech, Transcription, and Timestamp.
+      </p>
+      <p>
+        The corpus spans 885.34 hours across 998 unique videos from 596 channels and 17 domains. It also includes a human-corrected gold evaluation split and benchmark experiments covering zero-shot and fine-tuned ASR systems. The accompanying construction pipeline is designed to be reproducible for other caption-rich, low-resource languages.
+      </p>
+    </section>
+
+    <section class="stats-wrap" aria-label="Dataset statistics">
+      <div class="stats section-shell">
+        <article><strong>885.34</strong><span>hours</span></article>
+        <article><strong>998</strong><span>unique videos</span></article>
+        <article><strong>596</strong><span>channels</span></article>
+        <article><strong>17</strong><span>domains</span></article>
+        <article><strong>984,647</strong><span>speaker segments</span></article>
+      </div>
+    </section>
+
+    <section id="dataset" class="section section-muted">
+      <div class="section-shell">
+        <div class="section-heading-row">
+          <div>
+            <div class="section-kicker">Dataset</div>
+            <h2>Built for real Bengali speech</h2>
+          </div>
+          <p class="section-side-copy">Long-form, multi-speaker, domain-diverse speech instead of only isolated read utterances.</p>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card"><span>Total word tokens</span><strong>5,832,680</strong></article>
+          <article class="metric-card"><span>Unique vocabulary</span><strong>181,648</strong></article>
+          <article class="metric-card"><span>Average duration / video</span><strong>~52 min</strong></article>
+          <article class="metric-card"><span>Median speakers / recording</span><strong>4</strong></article>
+          <article class="metric-card"><span>Median segment duration</span><strong>1.54 s</strong></article>
+          <article class="metric-card"><span>Detected overlapped speech</span><strong>11.6 h</strong></article>
+        </div>
+
+        <div class="two-col gap-large top-space">
+          <div>
+            <h3>What makes Lipi-Ghor different?</h3>
+            <ul class="check-list">
+              <li>Speaker-attributed, timestamped annotations for long-form Bengali recordings.</li>
+              <li>Seventeen content domains, including audiobooks, talkshows, movies, natok, sermons, news and regional/dialect speech.</li>
+              <li>Weakly supervised bulk corpus plus a separate human-corrected evaluation split.</li>
+              <li>Corpus construction pipeline released as a reusable recipe for caption-rich low-resource languages.</li>
+            </ul>
+          </div>
+          <div class="comparison-card">
+            <h3>Open Bengali speech resources</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Corpus</th><th>Hours</th><th>Domains</th><th>Diarized</th><th>Long-form</th></tr></thead>
+                <tbody>
+                  <tr><td>Common Voice bn</td><td>~40</td><td>1</td><td>—</td><td>—</td></tr>
+                  <tr><td>BengaliAI Speech</td><td>~1200*</td><td>few</td><td>—</td><td>—</td></tr>
+                  <tr><td>OOD-Speech (test)</td><td>23</td><td>17</td><td>—</td><td>—</td></tr>
+                  <tr><td>BengaliLoop (eval)</td><td>small</td><td>few</td><td>✓</td><td>✓</td></tr>
+                  <tr class="highlight-row"><td><strong>Lipi-Ghor</strong></td><td><strong>885</strong></td><td><strong>17</strong></td><td><strong>✓</strong></td><td><strong>✓</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="caption">* Predominantly short, read/controlled speech.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pipeline" class="section section-shell">
+      <div class="section-kicker">Method</div>
+      <h2>The Lipi-Ghor pipeline</h2>
+      <p class="lead constrained">Four stages turn a curated set of Bengali YouTube channels into a speaker-diarized SSTT corpus.</p>
+
+      <div class="pipeline-grid">
+        <article class="pipeline-step pink">
+          <span class="step-number">01</span>
+          <h3>Channel curation</h3>
+          <p>Manually identify high-volume Bengali channels across target domains, then expand toward a long-tail of additional channels for diversity.</p>
+        </article>
+        <article class="pipeline-step amber">
+          <span class="step-number">02</span>
+          <h3>Transcript filtering</h3>
+          <p>Retain videos with Bengali <code>bn</code> caption tracks and distribute availability checks across multiple compute environments.</p>
+        </article>
+        <article class="pipeline-step green">
+          <span class="step-number">03</span>
+          <h3>Audio + caption extraction</h3>
+          <p>Extract MP3 audio and Bengali subtitles with yt-dlp, remove cross-domain duplicates, and preserve source video IDs.</p>
+        </article>
+        <article class="pipeline-step blue">
+          <span class="step-number">04</span>
+          <h3>SSTT annotation</h3>
+          <p>Apply Precision-2 diarization and align speaker turns with Bengali transcripts to create Speaker / Speech / Transcription / Timestamp records.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="figures">
+      <div class="section-shell">
+        <div class="section-kicker">Analysis</div>
+        <h2>Corpus figures</h2>
+        <p class="lead constrained">These cards use the figures already present in your repository's <code>assets/</code> folder.</p>
+
+        <div class="figure-grid">
+          <figure class="figure-card" data-zoom>
+            <img src="assets/BEST_PAEROTO.png" alt="Pareto view of Lipi-Ghor audio duration by domain" loading="lazy" />
+            <figcaption>Audio duration by domain</figcaption>
+          </figure>
+          <figure class="figure-card" data-zoom>
+            <img src="assets/lipighor-donut%20(1).png" alt="Lipi-Ghor domain distribution" loading="lazy" />
+            <figcaption>Dataset composition</figcaption>
+          </figure>
+          <figure class="figure-card" data-zoom>
+            <img src="assets/diar_segment_cdf.png" alt="Cumulative distribution of diarized segment durations" loading="lazy" />
+            <figcaption>Diarized segment duration CDF</figcaption>
+          </figure>
+          <figure class="figure-card" data-zoom>
+            <img src="assets/diar_speaker_density.png" alt="Speaker density distribution" loading="lazy" />
+            <figcaption>Speaker density</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="gold" class="section section-shell">
+      <div class="two-col align-center gap-large">
+        <div>
+          <div class="section-kicker">Gold Evaluation</div>
+          <h2>Human-corrected reference split</h2>
+          <p class="lead">A 500-clip evaluation split is stratified across all 17 domains.</p>
+          <p>Seventeen native Bengali-speaking volunteer annotators contributed approximately 30 hours of correction work. The annotation interface lets annotators inspect the source video, waveform, speaker ribbon, timestamps and transcript segments while correcting the machine baseline.</p>
+          <div class="inline-stats">
+            <span><strong>500</strong> clips</span>
+            <span><strong>17</strong> annotators</span>
+            <span><strong>~30 h</strong> correction</span>
+          </div>
+        </div>
+        <figure class="image-frame" data-zoom>
+          <img src="assets/annotation_tool_redacted.png" alt="Lipi-Ghor human annotation interface" loading="lazy" />
+          <figcaption>Human annotation interface used for the gold split.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="results" class="section section-dark">
+      <div class="section-shell">
+        <div class="section-kicker light">Benchmarks</div>
+        <h2>ASR evaluation</h2>
+        <p class="lead constrained light-copy">The paper evaluates four zero-shot systems and reports downstream fine-tuned baselines on Lipi-Ghor.</p>
+
+        <div class="results-layout">
+          <figure class="result-figure" data-zoom>
+            <img src="assets/Global_WER.png" alt="Global WER comparison" loading="lazy" />
+            <figcaption>Global WER comparison.</figcaption>
+          </figure>
+
+          <div class="result-tables">
+            <div class="dark-card">
+              <h3>Zero-shot</h3>
+              <table class="dark-table">
+                <thead><tr><th>Model</th><th>WER</th><th>CER</th></tr></thead>
+                <tbody>
+                  <tr><td>Hishab TITU Conformer-L</td><td>30.51</td><td>18.23</td></tr>
+                  <tr><td>Meta MMS 1B</td><td>43.06</td><td>21.16</td></tr>
+                  <tr><td>Seamless M4T-v2</td><td>66.71</td><td>45.54</td></tr>
+                  <tr><td>Whisper large-v3</td><td>84.53</td><td>72.92</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="dark-card">
+              <h3>Fine-tuned</h3>
+              <table class="dark-table">
+                <thead><tr><th>Model</th><th>WER</th><th>CER</th></tr></thead>
+                <tbody>
+                  <tr><td>Fast Conformer (A)</td><td>24.67</td><td>15.56</td></tr>
+                  <tr class="best-row"><td>Faster Whisper Medium (B)</td><td>20.70</td><td>11.90</td></tr>
+                  <tr><td>Moonshine-Base Bengali†</td><td>21.54</td><td>10.79</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="figure-grid compact top-space">
+          <figure class="figure-card dark-figure" data-zoom>
+            <img src="assets/WER_0shot_domains.png" alt="Zero-shot WER across Lipi-Ghor domains" loading="lazy" />
+            <figcaption>Domain-specific zero-shot WER.</figcaption>
+          </figure>
+          <figure class="figure-card dark-figure" data-zoom>
+            <img src="assets/diar_turn_vs_wer.png" alt="Speaker turn structure versus WER" loading="lazy" />
+            <figcaption>Turn structure versus recognition difficulty.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="responsible" class="section section-shell">
+      <div class="section-kicker">Responsible use</div>
+      <h2>Limitations, licensing and intended use</h2>
+      <div class="three-col top-space-small">
+        <article class="text-card">
+          <h3>Weak supervision</h3>
+          <p>Caption-derived transcripts are not fully human-verified and may differ from human references in punctuation, normalization and code-switched speech.</p>
+        </article>
+        <article class="text-card">
+          <h3>Diarization caveats</h3>
+          <p>Bulk speaker labels are automatically generated and should be treated as corpus metadata rather than a fully human-validated diarization benchmark.</p>
+        </article>
+        <article class="text-card">
+          <h3>Distribution</h3>
+          <p>Raw audio is not redistributed. Original contributions are released under CC-BY-4.0, while caption-derived transcripts remain subject to source rights and research-use constraints.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="citation" class="section section-muted">
+      <div class="section-shell narrow citation-wrap">
+        <div class="section-kicker">Citation</div>
+        <h2>Cite Lipi-Ghor</h2>
+        <p>Use the dataset citation below for the public Hugging Face release. Replace or add the final workshop-proceedings BibTeX once the archival citation is available.</p>
+        <div class="bibtex-box">
+          <button id="copy-bibtex" class="copy-button">Copy BibTeX</button>
+          <pre id="bibtex"><code>@dataset{lipighor2026,
+  title     = {Lipi-Ghor: A Large-Scale Bengali Speech Dataset with Speaker Diarization and Transcription},
+  author    = {Hasan, Sanjid and Fuad, A. H. M. and Labib, Risalat and Hasan, Bayazid},
+  year      = {2026},
+  publisher = {Hugging Face},
+  doi       = {10.57967/hf/7877},
+  url       = {https://huggingface.co/datasets/Sanjidh090/Lipi-Ghor-bn-882-SSTT}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-inner">
+      <div>
+        <strong>Lipi-Ghor | লিপিঘর</strong>
+        <p>For Bengali speech research.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://2026.emnlp.org/" target="_blank" rel="noopener">EMNLP 2026</a>
+        <a href="https://salma-workshop.github.io/salma-2026/" target="_blank" rel="noopener">SALMA 2026</a>
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Template inspiration</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="image-modal" class="image-modal">
+    <button class="modal-close" aria-label="Close image">×</button>
+    <img src="" alt="Expanded figure" />
+    <p></p>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
