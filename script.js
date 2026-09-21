@@ -1,72 +1,76 @@
-const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('.nav');
-
-menuButton?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
-
-nav?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-  });
-});
-
 const copyButton = document.getElementById('copy-bibtex');
 const bibtex = document.getElementById('bibtex');
 
 copyButton?.addEventListener('click', async () => {
+  const original = copyButton.innerHTML;
+
   try {
     await navigator.clipboard.writeText(bibtex.innerText);
-    copyButton.textContent = 'Copied';
 
-    setTimeout(() => {
-      copyButton.textContent = 'Copy BibTeX';
-    }, 1600);
+    copyButton.innerHTML =
+      '<span class="icon"><i class="fas fa-check"></i></span><span>Copied</span>';
   } catch {
     copyButton.textContent = 'Select + copy';
   }
+
+  window.setTimeout(() => {
+    copyButton.innerHTML = original;
+  }, 1600);
 });
 
-const modal = document.getElementById('image-modal');
-const modalImg = modal?.querySelector('img');
-const modalCaption = modal?.querySelector('p');
-const modalClose = modal?.querySelector('.modal-close');
 
-document.querySelectorAll('[data-zoom]').forEach((card) => {
-  card.addEventListener('click', () => {
-    const img = card.querySelector('img');
-    const caption = card.querySelector('figcaption');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
 
-    if (!img || !modal || !modalImg) return;
 
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
+function closeLightbox() {
+  if (!lightbox) return;
 
-    if (modalCaption) {
-      modalCaption.textContent =
-        caption?.textContent || img.alt;
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+
+  document.body.style.overflow = '';
+}
+
+
+document.querySelectorAll('.zoomable').forEach((figure) => {
+  figure.addEventListener('click', () => {
+    const image = figure.querySelector('img');
+
+    if (!image || !lightbox || !lightboxImage) return;
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || 'Expanded figure';
+
+    if (lightboxCaption) {
+      lightboxCaption.textContent =
+        figure.querySelector('figcaption')?.textContent ||
+        image.alt ||
+        '';
     }
 
-    modal.showModal();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+
+    document.body.style.overflow = 'hidden';
   });
 });
 
-modalClose?.addEventListener('click', () => {
-  modal.close();
+
+lightboxClose?.addEventListener('click', closeLightbox);
+
+
+lightbox?.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
 });
 
-modal?.addEventListener('click', (event) => {
-  const rect = modal.getBoundingClientRect();
 
-  const outside =
-    event.clientX < rect.left ||
-    event.clientX > rect.right ||
-    event.clientY < rect.top ||
-    event.clientY > rect.bottom;
-
-  if (outside) {
-    modal.close();
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeLightbox();
   }
 });
